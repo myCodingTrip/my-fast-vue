@@ -65,6 +65,7 @@
         header-align="center"
         align="center"
         sortable='custom'
+        width="200"
         label="交易时间">
         <template slot-scope="scope">
           <el-tooltip placement="top" :content="numberToDay(scope.row.dayOfWeek)">
@@ -76,13 +77,8 @@
         prop="money"
         header-align="center"
         align="center"
+        width="100"
         label="交易金额">
-      </el-table-column>
-      <el-table-column
-        prop="source"
-        header-align="center"
-        align="center"
-        label="支付方式">
       </el-table-column>
       <el-table-column
         prop="payee"
@@ -97,9 +93,17 @@
         label="商品">
       </el-table-column>
       <el-table-column
+        prop="source"
+        header-align="center"
+        align="center"
+        width="100"
+        label="支付方式">
+      </el-table-column>
+      <el-table-column
         prop="type"
         header-align="center"
         align="center"
+        width="100"
         label="消费类型">
       </el-table-column>
       <el-table-column
