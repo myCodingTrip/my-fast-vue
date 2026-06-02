@@ -37,7 +37,7 @@
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button @click="visible = false">取消</el-button>
-      <el-button type="primary" @click="dataFormSubmit()">确定</el-button>
+      <el-button id="submitBtn" type="primary" @click="dataFormSubmit()">确定</el-button>
     </span>
   </el-dialog>
 </template>
@@ -122,6 +122,10 @@ export default {
     // },
     // 表单提交
     dataFormSubmit () {
+      const btn = document.getElementById('submitBtn');
+      // 点击后立刻禁用，防止重复点
+      btn.disabled = true;
+      btn.innerText = "处理中...";
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
           this.$http({
@@ -145,6 +149,9 @@ export default {
                 onClose: () => {
                   this.visible = false
                   this.$emit('refreshDataList')
+                  // 执行完再恢复按钮
+                  btn.disabled = false;
+                  btn.innerText = "确定";
                 }
               })
             } else {

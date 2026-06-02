@@ -17,3 +17,6 @@
 
 ## 更新日志
 每个版本的详细更改都记录在[release notes](https://github.com/renrenio/renren-fast-vue/releases)中。
+
+node 10.0.0
+npm 5.6.0
